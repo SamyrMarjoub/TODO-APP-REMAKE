@@ -269,3 +269,9 @@ a {
     text-decoration: line-through;
     color: #c8cbe76b;
 }
+.hide{
+    display: none;
+}
+.flex{
+    display: flex;
+}

@@ -16,6 +16,7 @@ let numeros2 = 10
 let numeros3 = 20
 let numeros4 = 30
 let itens = 0
+let completed = 0
 js_img.addEventListener('click', function () {
     ++x
     if (x % 2 == 0) {
@@ -65,6 +66,7 @@ submit.addEventListener('keypress', function (e) {
         $('#itens-left').html(itens)
         const div = document.createElement('div')
         div.classList.add('todo-div')
+        div.classList.add('flex')
         div.id = numeros
         if (cond) {
             div.classList.add(classe)
@@ -73,7 +75,6 @@ submit.addEventListener('keypress', function (e) {
         }
         todo_div_container.append(div)
         const valor = submit.value
-        div.style.display = 'flex'
         let divc = document.createElement('div')
         divc.classList.add('todo-div-display')
         div.append(divc)
@@ -92,7 +93,50 @@ submit.addEventListener('keypress', function (e) {
         ball.addEventListener('click', function () {
             document.getElementById(ball.id).classList.toggle('checked')
             document.getElementById(pa.id).classList.toggle('checked-p')
+            document.getElementById(div.id).classList.toggle('finished')
+            completed = document.getElementsByClassName('finished').length
         })
+        const js_completed = document.querySelector('.js_completed').addEventListener('click', function () {
+            div.classList.remove('flex')
+            try {
+                if (document.getElementById(div.id).classList.contains('finished')) {
+                    document.getElementById(div.id).classList.remove('hide')
+                    document.getElementById(div.id).classList.add('flex')
+                }
+            } catch (error) {
+                console.warn('Ninguem viu..')
+            }
+        })
+        const js_all = document.querySelector('.js_all').addEventListener('click', function () {
+            try {
+                document.getElementById(div.id).classList.add('flex')
+            } catch (error) {
+                console.warn('Ops..')
+            }
+        })
+        const js_active = document.querySelector('.js_active').addEventListener('click', function () {
+            try {
+                if (document.getElementById(div.id).classList.contains('finished')) {
+                    document.getElementById(div.id).classList.remove('flex')
+                }
+            } catch (error) {
+                console.warn('Besteira')
+            }
+
+        })
+        const js_completed_clear = document.querySelector('.js_completed_clear').addEventListener('click', function () {
+            try {
+                if (document.getElementById(div.id).classList.contains('finished')) {
+                    document.getElementById(div.id).remove()
+                    --itens
+                    $('#itens-left').html(itens)
+
+                }
+            } catch (error) {
+                console.warn('só Ignorar..')
+            }
+
+        })
+
     }
 })
-
