@@ -141,6 +141,7 @@ html {
     outline: none;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 15px;
+    height: 100%;
 }
 
 #input::placeholder {
@@ -339,6 +340,12 @@ a {
 
     .p-config {
         font-size: 13px;
+    }
+    #cabeca{
+        /* height: 300px; */
+    }
+    #quadrado{
+        margin-top: -350px;
     }
 }
 
