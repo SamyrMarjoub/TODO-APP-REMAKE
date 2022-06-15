@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Todo app</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <div class="div-container div-container-color-black">
+    <div id="cabeca" class="cabeca-dark">
+    </div>
+      <div id="quadrado">
+        <div id="todo-header-img">
+          <div>
+            <h1>TODO</h1>
+          </div>
+          <div id="theme-div"> <img src="./images/icon-sun.svg" alt="" id="js_theme"> </div>
+        </div>
+        <div id="input-div" class="input-div-color-black">
+          <div class="first-div">
+            <div class="ball2"></div>
+          </div>
+          <div class="second-div">
+            <input type="text" placeholder="Create a new todo..." id="input" maxlength="54" class="color-white">
+          </div>
+        </div>
+        <div id="main">
+          <div id="todo-div-container">
+          </div>
+          <div class="input-div todo-div-color-black">
+            <div class="input-div-container">
+              <div id="c1">
+                <h4 class="fraco"> <span id="itens-left">0</span> item(s) left </h4>
+              </div>
+              <div id="c2">
+                <div id="buttons">
+                  <a href="#" class="forte js_all all">All</a>
+                  <a href="#" class="forte js_active">Active</a>
+                  <a href="#" style="margin-right: 0;" class="forte js_completed">Completed</a>
+                </div>
+              </div>
+              <div id="c3"> <a href="#" class="fraco js_completed_clear">Clear Completed</a> </div>
+            </div>
+          </div>
+          <div class="mobile-d todo-div-color-black" id="input-div2" >
+            <div id="buttons-m">
+              <a href="#" class="forte js_all-m all">All</a>
+              <a href="#" class="forte js_active-m">Active</a>
+              <a href="#" style="margin-right: 0;" class="forte js_completed-m">Completed</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="index2.js"></script>
+</body>
+
+</html>
