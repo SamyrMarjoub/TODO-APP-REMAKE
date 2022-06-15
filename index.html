@@ -14,7 +14,8 @@
 <body>
 
   <div class="div-container div-container-color-black">
-    <header id="cabeca" class="cabeca-dark">
+    <div id="cabeca" class="cabeca-dark">
+    </div>
       <div id="quadrado">
         <div id="todo-header-img">
           <div>
@@ -27,12 +28,11 @@
             <div class="ball2"></div>
           </div>
           <div class="second-div">
-            <input type="text" placeholder="Create a new todo..." id="input" maxlength="57" class="color-white">
+            <input type="text" placeholder="Create a new todo..." id="input" maxlength="54" class="color-white">
           </div>
         </div>
         <div id="main">
           <div id="todo-div-container">
-
           </div>
           <div class="input-div todo-div-color-black">
             <div class="input-div-container">
@@ -41,7 +41,7 @@
               </div>
               <div id="c2">
                 <div id="buttons">
-                  <a href="#" id="all" class="forte js_all">All</a>
+                  <a href="#" class="forte js_all all">All</a>
                   <a href="#" class="forte js_active">Active</a>
                   <a href="#" style="margin-right: 0;" class="forte js_completed">Completed</a>
                 </div>
@@ -49,9 +49,16 @@
               <div id="c3"> <a href="#" class="fraco js_completed_clear">Clear Completed</a> </div>
             </div>
           </div>
+          <div class="mobile-d todo-div-color-black" id="input-div2" >
+            <div id="buttons-m">
+              <a href="#" class="forte js_all-m all">All</a>
+              <a href="#" class="forte js_active-m">Active</a>
+              <a href="#" style="margin-right: 0;" class="forte js_completed-m">Completed</a>
+            </div>
+          </div>
         </div>
       </div>
-    </header>
+    </div>
   </div>
   <script src="index2.js"></script>
 </body>

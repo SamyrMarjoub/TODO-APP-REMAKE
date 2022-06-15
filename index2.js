@@ -4,6 +4,7 @@ const js_img = document.querySelector('#js_theme')
 const bgcolor = document.querySelector('.div-container')
 const cabeca = document.querySelector('#cabeca')
 const input_div = document.querySelector('#input-div')
+const input_div_m = document.querySelector('#input-div2')
 const input_div_c = document.querySelector('.input-div')
 const color_white = document.querySelector('.color-white')
 const fraco = document.querySelectorAll('.fraco')
@@ -12,11 +13,12 @@ let x = 1
 let classe = 'todo-div-color-black'
 let cond = false
 let numeros = 0
-let numeros2 = 10
-let numeros3 = 20
-let numeros4 = 30
+let numeros2 = 100
+let numeros3 = 200
+let numeros4 = 300
 let itens = 0
 let completed = 0
+let width = window.innerWidth
 js_img.addEventListener('click', function () {
     ++x
     if (x % 2 == 0) {
@@ -25,6 +27,7 @@ js_img.addEventListener('click', function () {
         cabeca.classList.replace('cabeca-dark', 'cabeca-white')
         input_div.classList.replace('input-div-color-black', 'input-div-color-white')
         input_div_c.classList.replace('todo-div-color-black', 'todo-div-color-white')
+        input_div_m.classList.replace('todo-div-color-black', 'todo-div-color-white')
         color_white.classList.replace('color-white', 'color-black')
         for (let i = 0; i < fraco.length; i++) {
             fraco[i].classList.replace('fraco', 'forte')
@@ -41,6 +44,7 @@ js_img.addEventListener('click', function () {
         cabeca.classList.replace('cabeca-white', 'cabeca-dark')
         input_div.classList.replace('input-div-color-white', 'input-div-color-black')
         input_div_c.classList.replace('todo-div-color-white', 'todo-div-color-black')
+        input_div_m.classList.replace('todo-div-color-white', 'todo-div-color-black')
         color_white.classList.replace('color-black', 'color-white')
         for (let i = 0; i < fraco.length; i++) {
             fraco[i].classList.replace('forte', 'fraco')
@@ -78,7 +82,7 @@ submit.addEventListener('keypress', function (e) {
         let divc = document.createElement('div')
         divc.classList.add('todo-div-display')
         div.append(divc)
-        divc.innerHTML = `<div class="first-div main-d1"> <div class="ball" id='${numeros3}'></div> </div> <div class="second-div main-d2"><p class="no-checked-p" id='${numeros4}'>
+        divc.innerHTML = `<div class="first-div main-d1"> <div class="ball" id='${numeros3}'></div> </div> <div class="second-div main-d2"><p class="no-checked-p p-config" id='${numeros4}'>
         ${valor} </p> </div> <div class="last-div main-d3"> <img src="./images/icon-cross.svg" class="fechar" id='${numeros2}'> </div> `
         submit.value = ''
         const fechar = document.getElementById(numeros2)
@@ -86,7 +90,7 @@ submit.addEventListener('keypress', function (e) {
             document.getElementById(div.id).remove()
             --itens
             $('#itens-left').html(itens)
-
+            console.log('fechou')
         })
         const ball = document.getElementById(numeros3)
         const pa = document.getElementById(numeros4)
@@ -138,5 +142,41 @@ submit.addEventListener('keypress', function (e) {
 
         })
 
+        const js_all_m = document.querySelector('.js_all-m').addEventListener('click', function () {
+            try {
+                document.getElementById(div.id).classList.add('flex')
+            } catch (error) {
+                console.warn('Ops..')
+            }
+        })
+        const js_active_m = document.querySelector('.js_active-m').addEventListener('click', function () {
+            try {
+                if (document.getElementById(div.id).classList.contains('finished')) {
+                    document.getElementById(div.id).classList.remove('flex')
+                }
+            } catch (error) {
+                console.warn('Besteira')
+            }
+
+        })
+        const js_completed_m = document.querySelector('.js_completed-m').addEventListener('click', function () {
+            div.classList.remove('flex')
+            try {
+                if (document.getElementById(div.id).classList.contains('finished')) {
+                    document.getElementById(div.id).classList.remove('hide')
+                    document.getElementById(div.id).classList.add('flex')
+                }
+            } catch (error) {
+                console.warn('Ninguem viu..')
+            }
+        })
+
     }
 })
+if (width <= 600 && width > 450) {
+    submit.setAttribute('maxlength', '45')
+} else if (width <= 450) {
+    submit.setAttribute('maxlength', '40')
+} else if (width <= 450 && width > 300) {
+    submit.setAttribute('maxlength', '30')
+}
